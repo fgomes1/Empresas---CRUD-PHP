@@ -1,0 +1,204 @@
+.empresa-list {
+  background-color: #c1d8f0;
+  border-radius: 8px;
+  padding: 1rem;
+  max-width: 800px; /* Define a largura máxima */
+  margin: 2rem auto; /* Centraliza o contêiner horizontalmente */
+
+  h2 {
+    color: #333;
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  /* Contêiner que envolve a lista para limitar a altura e permitir rolagem */
+  .empresa-items-container {
+    max-height: 20rem;
+    overflow-y: auto;
+    margin-bottom: 1rem;
+  }
+
+  /* Estilização da seta de toggle */
+  .arrow-down::before {
+    content: '▼';
+    margin-left: 0.5rem;
+  }
+  
+  .arrow-up::before {
+    content: '▲';
+    margin-left: 0.5rem;
+  }
+
+  /* Remove a formatação padrão da lista */
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  /* Estilização dos itens da lista (cartões) */
+  .empresa-item {
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    transition: background-color 0.3s ease;
+    
+    &:hover {
+      background-color: #d0c5c5;
+    }
+  }
+  
+  /* Header de cada item */
+  .empresa-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #007bff; /* Cor de destaque, ajustável */
+    &:hover {
+      color: #0056b3;
+    }
+  }
+  
+  .socio-btn {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #28a745; /* Verde, por exemplo */
+    transition: color 0.3s;
+  
+    &:hover {
+      color: #1e7e34;
+    }
+  }
+
+  .delete-btn {
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    cursor: pointer;
+    padding: 0;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #dc3545; 
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: #a71d2a; 
+    }
+  }
+
+  /* Nome da empresa */
+  .empresa-nome {
+    font-family: 'Arial', sans-serif;
+    font-size: 1.2rem;
+    font-weight: bold;
+    flex: 1;  /* Ocupa o espaço disponível */
+    text-decoration: none;
+    
+  }
+  
+  /* Container para a seta e ícone de edição */
+  .empresa-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  /* Estilização do ícone de edição (pincel) */
+  .edit-icon {
+    cursor: pointer;
+    font-size: 1.2rem;
+    color: #007bff; /* Cor de destaque, ajustável */
+    transition: color 0.3s;
+    
+    &:hover {
+      color: #0056b3;
+    }
+  }
+  .edit-btn {
+    background: transparent; /* Remove o fundo padrão */
+    border: none;            /* Remove a borda */
+    outline: none;           /* Remove o contorno (outline) quando focado */
+    box-shadow: none;        /* Remove qualquer sombra de foco */
+    cursor: pointer;
+    padding: 0;
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+    color: #007bff;          /* Cor desejada */
+    transition: color 0.3s ease;
+  
+    &:hover {
+      color: #0056b3;
+    }
+  
+    &:focus {
+      outline: none;         /* Garante que o foco não exiba o outline */
+      box-shadow: none;
+    }
+  }
+  
+  /* Estilização para contagem de sócios */
+  .socios-count {
+    font-size: 0.875rem;
+    color: #666;
+    margin-left: 0.5rem;
+  }
+  
+  /* Botões da listagem */
+  .empresa-list-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    width: 100%;
+    margin-top: 1rem;
+  
+    app-button {
+      flex: 1 1 calc(50% - 0.5rem);
+      text-align: center;
+      box-sizing: border-box;
+    }
+  
+    @media (max-width: 600px) {
+      app-button {
+        flex: 1 1 100%;
+      }
+    }
+  }
+  .edit-socio-btn,
+  .delete-socio-btn {
+    background: transparent; /* Remove fundo padrão */
+    border: none;            /* Remove a borda */
+    outline: none;           /* Remove o outline quando focado */
+    padding: 0;              /* Remove padding extra */
+    margin: 0 0.5rem;        /* Ajuste de espaçamento */
+    cursor: pointer;         /* Mostra o cursor pointer */
+    font-size: 1.2rem;       /* Tamanho do ícone */
+    transition: color 0.3s ease;
+  }
+  
+  .edit-socio-btn {
+    color: #007bff;
+  }
+  
+  .edit-socio-btn:hover {
+    color: #0056b3;
+  }
+  
+  .delete-socio-btn {
+    color: #dc3545;
+  }
+  
+  .delete-socio-btn:hover {
+    color: #a71d2a;
+  }
+  
+}

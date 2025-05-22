@@ -1,0 +1,125 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    background-color: var(--white);
+    color: var(--blue-dark);
+    padding: 1rem;
+    text-align: center;
+    border-bottom: 1px solid #ddd;
+  
+    h1 {
+      margin: 0;
+    }
+  }
+  
+  main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding-top: 60px; /* Ajuste o valor conforme necessário para a altura do navbar */
+  }
+  
+  
+  footer {
+    background-color: var(--blue-brand);
+    color: var(--white);
+    padding: 1rem; /* Reduza o padding */
+    text-align: center;
+    margin: 0; /* Remova qualquer margem */
+    border: none; /* Remova qualquer borda */
+    width: 100%; /* Garanta que o footer ocupe toda a largura */
+  
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto; /* Centralize o conteúdo do footer */
+      display: flex;
+      flex-direction: column;
+      gap: 1rem; /* Reduza o espaçamento entre os elementos */
+  
+      @media (min-width: 768px) {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+      }
+    }
+  
+    .footer-logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 0.5rem; /* Reduza o espaçamento inferior */
+  
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+        margin-bottom: 0; /* Remova o espaçamento inferior em telas maiores */
+      }
+  
+      img {
+        max-height: 50px;
+      }
+    }
+  
+    .footer-text {
+      font-size: 0.875rem;
+      line-height: 1.4;
+      margin-bottom: 0.5rem; /* Reduza o espaçamento inferior */
+  
+      @media (min-width: 768px) {
+        text-align: left;
+        margin-bottom: 0; /* Remova o espaçamento inferior em telas maiores */
+      }
+    }
+  
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem; /* Reduza o espaçamento entre os links */
+      justify-content: center;
+      margin-bottom: 0.5rem; /* Reduza o espaçamento inferior */
+  
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+        margin-bottom: 0; /* Remova o espaçamento inferior em telas maiores */
+      }
+  
+      a {
+        color: var(--white);
+        text-decoration: none;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #ffcc00;
+        }
+      }
+    }
+  
+    .social-links {
+      display: flex;
+      gap: 0.5rem; /* Reduza o espaçamento entre os ícones */
+      justify-content: center;
+  
+      @media (min-width: 768px) {
+        justify-content: flex-start;
+      }
+  
+      a {
+        color: var(--white);
+        font-size: 1.25rem;
+        transition: color 0.3s ease;
+  
+        &:hover {
+          color: #ffcc00;
+        }
+      }
+    }
+  }

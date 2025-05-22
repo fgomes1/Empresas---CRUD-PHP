@@ -1,0 +1,22 @@
+<!-- src/app/components/edit-socio-modal/edit-socio-modal.component.html -->
+<div class="modal-overlay">
+    <div class="modal-container">
+      <!-- Título muda conforme o contexto, aqui fixo para edição -->
+      <h2>Editar Sócio</h2>
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nome">Nome do Sócio</label>
+          <input id="nome" type="text" formControlName="nome" class="form-control" />
+          <!-- Exibe uma mensagem de erro se o campo 'nome' for inválido e tiver sido tocado -->
+          <div *ngIf="editForm.get('nome')?.invalid && editForm.get('nome')?.touched" class="error">
+            <small>Campo obrigatório</small>
+          </div>
+        </div>
+        <div class="modal-buttons">
+          <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

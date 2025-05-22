@@ -1,0 +1,89 @@
+<div class="empresa-list">
+  <h2>Lista de Empresas</h2>
+
+  <div *ngIf="loading">Carregando...</div>
+  <div *ngIf="error">{{ error }}</div>
+
+  <div class="empresa-items-container">
+    <ul *ngIf="!loading && !error">
+      <li *ngFor="let empresa of empresas" class="empresa-item">
+        <div class="empresa-header">
+          <div class="header-left" (click)="toggleEmpresa(empresa)">
+            <span class="toggle-arrow">
+              <i [ngClass]="empresa.open ? 'bi bi-caret-up-fill' : 'bi bi-caret-down-fill'"></i>
+            </span>
+            <a [routerLink]="['/empresa', empresa.id]" class="empresa-name">
+              {{ empresa.nome }}
+            </a>
+          </div>
+          <div class="header-right">
+            <button class="edit-btn" (click)="editEmpresa(empresa, $event)">
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="delete-btn" (click)="deleteEmpresa(empresa, $event)">
+              <i class="bi bi-trash"></i>
+            </button>
+            <!-- Botão para cadastrar sócio para essa empresa -->
+            <button class="socio-btn" (click)="openCreateSocioModal(empresa, $event)">
+              <i class="bi bi-plus-circle"></i>
+            </button>
+            <span class="socios-count">
+              ({{ empresa.socios?.length || 0 }} sócios)
+            </span>
+          </div>
+        </div>
+        <ul *ngIf="empresa.open">
+          <li *ngFor="let socio of empresa.socios" class="socio-item">
+            <span class="socio-name">{{ socio.nome }}</span>
+            <div class="socio-actions">
+              <!-- Botão para editar o sócio -->
+              <button class="edit-socio-btn" (click)="editSocio(empresa, socio, $event)">
+                <i class="bi bi-pencil"></i>
+              </button>
+              <!-- Botão para deletar o sócio (se já existir) -->
+              <button class="delete-socio-btn" (click)="deleteSocio(empresa, socio, $event)">
+                <i class="bi bi-x-circle"></i>
+              </button>
+            </div>
+          </li>
+        </ul>
+      </li>
+
+    </ul>
+  </div>
+
+  <div class="empresa-list-buttons">
+    <app-button label="Cadastrar Empresa" classes="button button-primary button-large"
+      (buttonClick)="openCreateModal()">
+    </app-button>
+
+  </div>
+</div>
+
+<app-create-socio-modal
+  *ngIf="showCreateSocioModal"
+  (closeModal)="closeCreateSocioModal()"
+  (socioCreated)="onSocioCreated($event)">
+</app-create-socio-modal>
+
+<!-- Modal de criação -->
+<app-create-company-modal
+  *ngIf="showCreateModal"
+  (closeModal)="closeCreateModal()"
+  (companyCreated)="onCompanyCreated($event)">
+</app-create-company-modal>
+
+<!-- Modal de edição -->
+<app-edit-company-modal
+  *ngIf="showEditModal"
+  [company]="selectedEmpresa"
+  (closeModal)="closeEditModal()"
+  (companyUpdated)="onCompanyUpdated($event)">
+</app-edit-company-modal>
+
+<app-edit-socio-modal
+  *ngIf="showEditSocioModal"
+  [socio]="selectedSocio"
+  (closeModal)="closeEditSocioModal()"
+  (socioUpdated)="onSocioUpdated($event)">
+</app-edit-socio-modal>

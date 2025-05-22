@@ -1,0 +1,44 @@
+.button-access {
+    background-color: #1c5d99; /* Azul principal */
+    color: #ffffff;            /* Texto em branco */
+    border: none;
+    border-radius: 6px;
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  
+    &:hover {
+      background-color: #333; /* Cor preta no hover */
+    }
+  }
+
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, color 0.3s ease;
+
+  &.button-primary {
+    background-color: #004085;
+    color: #fff;
+    border-color: #004085;
+
+    &:hover {
+      background-color: #333;
+      border-color: #333;
+    }
+  }
+
+  &.button-large {
+    padding: 0.75rem 1.5rem;
+    font-size: 1.25rem;
+  }
+}

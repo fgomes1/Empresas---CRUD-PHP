@@ -1,0 +1,19 @@
+<div class="modal-overlay">
+    <div class="modal-container">
+      <h2>Editar Empresa</h2>
+      <form [formGroup]="editForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nome">Nome da Empresa</label>
+          <input id="nome" type="text" formControlName="nome" class="form-control" />
+          <div *ngIf="editForm.get('nome')?.invalid && editForm.get('nome')?.touched" class="error">
+            <small>Campo obrigatório</small>
+          </div>
+        </div>
+        <div class="modal-buttons">
+          <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancelar</button>
+          <button type="submit" class="btn btn-primary" [disabled]="editForm.invalid">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  

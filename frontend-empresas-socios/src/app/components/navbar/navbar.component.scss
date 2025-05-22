@@ -1,0 +1,35 @@
+.navbar {
+    background-color: var(--blue-brand); /* Ajuste a cor de fundo do navbar */
+    padding: 1rem;
+  
+    .navbar-brand img {
+      max-height: 50px;
+      background-color: var(--white); /* Adicione um fundo branco à logo */
+      padding: 0.25rem; /* Adicione um padding para criar um espaço ao redor da logo */
+      border-radius: 0.25rem; /* Adicione bordas arredondadas */
+    }
+  
+    .navbar-nav .nav-link {
+      color: var(--white);
+      margin-right: 1rem;
+      transition: color 0.3s ease;
+  
+      &:hover {
+        color: #ffcc00;
+      }
+    }
+  
+    .dropdown-menu {
+      background-color: var(--blue-brand);
+      border: none;
+  
+      .dropdown-item {
+        color: var(--white);
+  
+        &:hover {
+          background-color: #ffcc00;
+          color: var(--blue-brand);
+        }
+      }
+    }
+  }

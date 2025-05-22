@@ -1,0 +1,23 @@
+<div class="modal-overlay">
+    <div class="modal-container">
+      <h2>Cadastrar Nova Empresa</h2>
+  
+      <form [formGroup]="companyForm" (ngSubmit)="onSubmit()">
+        <div class="form-group">
+          <label for="nome">Nome da Empresa</label>
+          <input id="nome" type="text" formControlName="nome" />
+          <div *ngIf="companyForm.controls['nome'].invalid && companyForm.controls['nome'].touched">
+            <small>Campo obrigatório</small>
+          </div>
+        </div>
+  
+        <!-- Adicione mais campos se necessário -->
+  
+        <div class="modal-buttons">
+          <button type="button" (click)="onCancel()">Cancelar</button>
+          <button type="submit" [disabled]="companyForm.invalid">Cadastrar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+  
